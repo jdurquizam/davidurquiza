@@ -40,7 +40,17 @@ body {
     font-size: 0.9rem;
     margin-top: 20px;
     transition: all 0.3s ease;
+
+    .profile-img {
+    width: 140px;       /* Makes the image smaller */
+    height: 140px;      /* Keeps the height perfectly matched to the width */
+    border-radius: 50%; /* Turns the image into a perfect circle */
+    object-fit: cover;  /* Prevents the image from squishing or stretching */
+    display: block;
+    margin: 0 auto 20px auto; /* Keeps it perfectly centered */
+    border: 3px solid var(--border-color); /* Adds a subtle ring around it */
 }
+
 
 .theme-toggle:hover {
     background-color: var(--border-color);
