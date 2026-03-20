@@ -10,12 +10,12 @@
 
     <aside class="sidebar">
         <img src="profile.jpg" alt="Jose David Urquiza Munoz" class="profile-img">
-        <h2>Jose David Urquiza Munoz</h2>
+        <h2>Jose David<br>Urquiza Munoz</h2>
         
         <div class="contact-info">
             <p><strong>Address:</strong><br>Jena - Iquitos, Germany - Peru</p>
             <p><strong>Email:</strong><br><a href="mailto:jurquizal@bgc-jena.mpg.de">jurquizal@bgc-jena.mpg.de</a></p>
-            <p><strong>Publication list:</strong><br><a href="https://scholar.google.com/citations?hl=en&user=8Au2odkAAAAJ" target="_blank">Google Scholar</a></p>
+            <p><a href="https://scholar.google.com/citations?hl=en&user=8Au2odkAAAAJ" target="_blank">Google Scholar</a></p>
         </div>
 
         <nav class="nav-links">
@@ -26,6 +26,10 @@
             <a href="other.html">Other</a>
         </nav>
 
+        <div class="language-toggle">
+            <strong>EN</strong> | <a href="research-es.html">ES</a>
+        </div>
+
         <button id="theme-toggle" class="theme-toggle">🌙 Dark Mode</button>
     </aside>
 
@@ -33,7 +37,7 @@
         
         <section class="featured-media">
             <h2 style="border-bottom: 2px solid var(--border-color); padding-bottom: 10px; margin-bottom: 20px;">Featured Research Video</h2>
-            <div class="video-container" style="max-width: 750px; margin: 0 auto; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border: 1px solid var(--border-color); background-color: #000;">
+            <div class="video-container">
                 <iframe src="https://lt.org/embed/publication-plus/83ad64a9-caa0-4a43-aec8-38df67d9155f/" style="aspect-ratio: 16/9; width: 100%; border: 0; margin: 0; padding: 0; display: block;" allowfullscreen title="Latest Thinking - Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; web-share"></iframe>
             </div>
             <p style="text-align: center; font-size: 0.9rem; margin-top: 10px; color: #777;">A brief overview of my recent findings on large-scale windthrows across the Amazon Basin.</p>
@@ -41,11 +45,9 @@
 
         <section class="publications">
             <h2 style="border-bottom: 2px solid var(--border-color); padding-bottom: 10px; margin-top: 40px; margin-bottom: 20px;">Publications</h2>
-            
             <div style="text-align: left; max-width: 750px; margin: 0 auto;">
                 <script src="https://bibbase.org/show?bib=https%3A%2F%2Fbibbase.org%2Fnetwork%2Ffiles%2FHgGCCbaTkFyYd6iSq&noBootstrap=1&jsonp=1"></script>
             </div>
-            
         </section>
 
     </main>
@@ -53,21 +55,18 @@
     <script>
         const toggleBtn = document.getElementById('theme-toggle');
         const body = document.body;
-        
         if (localStorage.getItem('theme') === 'dark') {
             body.classList.add('dark-mode');
             toggleBtn.textContent = '☀️ Light Mode';
         }
-
         toggleBtn.addEventListener('click', () => {
             body.classList.toggle('dark-mode');
-            
             if (body.classList.contains('dark-mode')) {
-                localStorage.setItem('theme', 'dark'); 
-                toggleBtn.textContent = '☀️ Light Mode'; 
+                localStorage.setItem('theme', 'dark');
+                toggleBtn.textContent = '☀️ Light Mode';
             } else {
-                localStorage.setItem('theme', 'light'); 
-                toggleBtn.textContent = '🌙 Dark Mode'; 
+                localStorage.setItem('theme', 'light');
+                toggleBtn.textContent = '🌙 Dark Mode';
             }
         });
     </script>
