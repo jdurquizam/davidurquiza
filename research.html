@@ -9,13 +9,13 @@
 <body>
 
     <aside class="sidebar">
-        <img src="profile.JPG" alt="Jose David Urquiza Munoz" class="profile-img">
+        <img src="profile.jpg" alt="Jose David Urquiza Munoz" class="profile-img">
         <h2>Jose David Urquiza Munoz</h2>
         
         <div class="contact-info">
             <p><strong>Address:</strong><br>Jena - Iquitos, Germany - Peru</p>
             <p><strong>Email:</strong><br><a href="mailto:jurquizal@bgc-jena.mpg.de">jurquizal@bgc-jena.mpg.de</a></p>
-            <p><strong>Publication list:</strong><br><a href="https://scholar.google.com/citations?hl=en&user=8Au2odkAAAAJ" target="_blank">Google Scholar</a></p>
+            <p><a href="https://scholar.google.com/citations?hl=en&user=8Au2odkAAAAJ" target="_blank">Google Scholar</a></p>
         </div>
 
         <nav class="nav-links">
@@ -40,29 +40,12 @@
         </section>
 
         <section class="publications">
-            <h3>Peer-Reviewed Journal Articles</h3>
-            <ul>
-                <li>
-                    <span class="year">2024</span>
-                    <strong>Urquiza-Muñoz, J.D.</strong>, Trumbore, S., Negrón-Juárez, R.I., Feng, Y., Brenning, A., Vasquez-Parana, C.M., Marra, D.M. Increased Occurrence of Large-Scale Windthrows Across the Amazon Basin. <em>AGU Advances</em>, 5, e2023AV001030. <a href="https://doi.org/10.1029/2023AV001030" target="_blank">[DOI]</a>
-                </li>
-                <li>
-                    <span class="year">2023</span>
-                    Negron-Juarez, R., Magnabosco-Marra, D., Feng, Y., <strong>Urquiza-Muñoz, J.D.</strong>, Riley, W.J., & Chambers, J. Windthrow characteristics and their regional association with rainfall, soil, and surface elevation in the Amazon. <em>Environmental Research Letters</em>, 18(1), 014030. <a href="#" target="_blank">[DOI]</a>
-                </li>
-                <li>
-                    <span class="year">2022</span>
-                    [Co-author], <strong>Urquiza-Muñoz, J.D.</strong>, & [Co-author]. [Title of your paper]. <em>[Journal Name]</em>, [Volume(Issue)], [Pages].
-                </li>
-                </ul>
-
-            <h3>Preprints & Data Sets</h3>
-            <ul>
-                <li>
-                    <span class="year">2024</span>
-                    <strong>Urquiza-Muñoz, J.D.</strong>, & [Co-authors]. [Dataset or Preprint Title]. <em>[Repository/Server]</em>. <a href="#" target="_blank">[Link]</a>
-                </li>
-            </ul>
+            <h2 style="border-bottom: 2px solid var(--border-color); padding-bottom: 10px; margin-top: 40px; margin-bottom: 20px;">Publications</h2>
+            
+            <div style="text-align: left; max-width: 750px; margin: 0 auto;">
+                <script src="https://bibbase.org/show?bib=https%3A%2F%2Fbibbase.org%2Fnetwork%2Ffiles%2FHgGCCbaTkFyYd6iSq&noBootstrap=1&jsonp=1"></script>
+            </div>
+            
         </section>
 
     </main>
@@ -71,22 +54,20 @@
         const toggleBtn = document.getElementById('theme-toggle');
         const body = document.body;
         
-        // Check if the user previously chose dark mode
         if (localStorage.getItem('theme') === 'dark') {
             body.classList.add('dark-mode');
             toggleBtn.textContent = '☀️ Light Mode';
         }
 
-        // What happens when the button is clicked
         toggleBtn.addEventListener('click', () => {
             body.classList.toggle('dark-mode');
             
             if (body.classList.contains('dark-mode')) {
-                localStorage.setItem('theme', 'dark'); // Save preference
-                toggleBtn.textContent = '☀️ Light Mode'; // Change button text
+                localStorage.setItem('theme', 'dark'); 
+                toggleBtn.textContent = '☀️ Light Mode'; 
             } else {
-                localStorage.setItem('theme', 'light'); // Save preference
-                toggleBtn.textContent = '🌙 Dark Mode'; // Change button text
+                localStorage.setItem('theme', 'light'); 
+                toggleBtn.textContent = '🌙 Dark Mode'; 
             }
         });
     </script>
