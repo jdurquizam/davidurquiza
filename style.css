@@ -65,7 +65,7 @@ a:hover {
 
 /* Updated Profile Image - Smaller and Circular */
 .profile-img {
-    width: 2400px;
+    width: 240px;
     height: 240px;
     border-radius: 100%;
     object-fit: cover;
