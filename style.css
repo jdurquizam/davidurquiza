@@ -1,4 +1,6 @@
-/* Basic Setup with Light & Dark Themes */
+/* =========================================
+   1. Colors & Dark Mode Variables
+   ========================================= */
 :root {
     --bg-color: #ffffff;
     --text-color: #333333;
@@ -16,12 +18,17 @@ body.dark-mode {
     --border-color: #30363d;
 }
 
+/* =========================================
+   2. Base Body Styles (Centered Layout)
+   ========================================= */
 body {
     margin: 0;
     padding: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background-color: var(--bg-color); /* Added background color */
+    background-color: var(--bg-color); 
     color: var(--text-color);
+    
+    /* Forces the whole website into a centered column */
     display: flex;
     flex-direction: column; 
     align-items: center; 
@@ -29,29 +36,85 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease; /* Smooth fade effect */
 }
 
-/* Style for the Dark Mode Button */
-.theme-toggle {
-    background: transparent;
-    border: 1px solid var(--border-color);
-    color: var(--text-color);
-    padding: 8px 15px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    margin-top: 20px;
-    transition: all 0.3s ease;
+a {
+    color: var(--link-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
-    .profile-img {
-    width: 40px;       /* Makes the image smaller */
-    height: 40px;      /* Keeps the height perfectly matched to the width */
-    border-radius: 50%; /* Turns the image into a perfect circle */
-    object-fit: cover;  /* Prevents the image from squishing or stretching */
+
+a:hover {
+    text-decoration: underline;
+    color: var(--hover-color);
+}
+
+/* =========================================
+   3. Header / Profile Area
+   ========================================= */
+.sidebar {
+    width: 100%;
+    max-width: 800px; 
+    height: auto;
+    position: relative; 
+    background-color: transparent;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color); 
+    padding: 50px 20px 20px;
+    box-sizing: border-box;
+    text-align: center; /* Centers everything in the top section */
+}
+
+/* Updated Profile Image - Smaller and Circular */
+.profile-img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
     display: block;
-    margin: 0 auto 20px auto; /* Keeps it perfectly centered */
-    border: 3px solid var(--border-color); /* Adds a subtle ring around it */
+    margin: 0 auto 20px auto; 
+    border: 3px solid var(--border-color); 
+    transition: border-color 0.3s ease;
 }
 
-
-.theme-toggle:hover {
-    background-color: var(--border-color);
+.sidebar h2 {
+    font-size: 2rem;
+    margin: 0 0 20px 0;
 }
+
+/* Contact info aligned in a neat horizontal row */
+.contact-info {
+    font-size: 1rem;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.contact-info p {
+    margin: 0;
+}
+
+/* =========================================
+   4. Navigation & Dark Mode Button
+   ========================================= */
+.nav-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    padding: 8px 10px;
+    border-bottom: 2px solid transparent;
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    color: var(--link-color);
+}
+
+.nav-links a.active {
