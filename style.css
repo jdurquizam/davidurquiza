@@ -63,7 +63,7 @@ a:hover {
     text-align: center; /* Centers everything in the top section */
 }
 
-/* Updated Profile Image - Smaller and Circular */
+/* Profile Image - Circular */
 .profile-img {
     width: 240px;
     height: 240px;
@@ -111,10 +111,34 @@ a:hover {
     padding: 8px 10px;
     border-bottom: 2px solid transparent;
     font-weight: 500;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
 }
 
 .nav-links a:hover {
     color: var(--link-color);
+}
+
+.nav-links a.active {
+    color: var(--link-color);
+    font-weight: bold;
+    border-bottom: 2px solid var(--link-color); /* Underlines the active page */
+}
+
+/* Style for the Dark Mode Button */
+.theme-toggle {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-top: 25px;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+    background-color: var(--border-color);
 }
 
 /* =========================================
@@ -128,21 +152,52 @@ a:hover {
     box-sizing: border-box;
 }
 
-/* Introduction sections */
 .research-intro, .home-intro {
     margin-bottom: 40px;
-    /* We removed text-align: center from here so the title stays centered but not the paragraphs */
 }
 
-/* This targets the paragraph text specifically and justifies it */
+/* Paragraphs are now cleanly justified */
 .research-intro p, .home-intro p {
     margin-bottom: 15px;
     text-align: justify; 
 }
 
-/* Section Titles */
+/* Section Titles remain centered */
 h1, h2, h3 {
     text-align: center;
 }
 
-.nav-links a.active {
+.publications h3, .news-updates h2 {
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
+    margin-top: 40px;
+    font-size: 1.5rem;
+    transition: border-color 0.3s ease;
+}
+
+/* =========================================
+   6. Publication & News Lists
+   ========================================= */
+.publications ul, .news-updates ul {
+    list-style-type: none;
+    padding: 0;
+    max-width: 750px;
+    margin: 0 auto; /* Centers the list block itself */
+}
+
+.publications li {
+    margin-bottom: 15px;
+    text-indent: -40px; /* Hanging indent for academic formatting */
+    padding-left: 40px;
+    text-align: left; /* Keeps text readable from left to right */
+}
+
+.news-updates li {
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.publications .year {
+    font-weight: bold;
+    margin-right: 10px;
+}
