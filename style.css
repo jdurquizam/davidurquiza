@@ -179,3 +179,23 @@ h1, h2, h3 { text-align: center; }
     margin-bottom: 10px;
     text-align: left;
 }
+/* Social Media Icons */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: -10px; /* Pulls it closer to the text above */
+    margin-bottom: 25px;
+}
+
+.social-icons a {
+    color: var(--text-color);
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+}
+
+.social-icons a:hover {
+    color: var(--link-color);
+    transform: translateY(-3px); /* Adds a nice little bounce effect when you hover */
+}
