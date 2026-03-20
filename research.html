@@ -1,9 +1,94 @@
-<section class="featured-media">
-            <h2>Featured Research Video</h2>
-            <div class="video-container">
-                <iframe src="https://lt.org/embed/publication-plus/83ad64a9-caa0-4a43-aec8-38df67d9155f/" style="aspect-ratio: 16/9; width: 100%; border: 0; margin: 0; padding: 0" allowfullscreen title="Latest Thinking - Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; web-share"></iframe>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research | Jose David Urquiza Munoz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <aside class="sidebar">
+        <img src="profile.jpg" alt="Jose David Urquiza Munoz" class="profile-img">
+        <h2>Jose David<br>Urquiza Munoz</h2>
+        
+        <div class="contact-info">
+            <p><strong>Address:</strong><br>Jena - Iquitos, Germany - Peru</p>
+            <p><strong>Email:</strong><br><a href="mailto:jurquizal@bgc-jena.mpg.de">jurquizal@bgc-jena.mpg.de</a></p>
+            <p><a href="https://scholar.google.com/citations?hl=en&user=8Au2odkAAAAJ" target="_blank">Google Scholar</a></p>
+        </div>
+
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="research.html" class="active">Research</a>
+            <a href="teaching.html">Teaching</a>
+            <a href="other.html">Other</a>
+        </nav>
+
+        <button id="theme-toggle" class="theme-toggle">🌙 Dark Mode</button>
+    </aside>
+
+    <main class="content">
+        
+        <section class="featured-media">
+            <h2 style="border-bottom: 2px solid var(--border-color); padding-bottom: 10px; margin-bottom: 20px;">Featured Research Video</h2>
+            <div class="video-container" style="max-width: 750px; margin: 0 auto; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border: 1px solid var(--border-color); background-color: #000;">
+                <iframe src="https://lt.org/embed/publication-plus/83ad64a9-caa0-4a43-aec8-38df67d9155f/" style="aspect-ratio: 16/9; width: 100%; border: 0; margin: 0; padding: 0; display: block;" allowfullscreen title="Latest Thinking - Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; web-share"></iframe>
             </div>
+            <p style="text-align: center; font-size: 0.9rem; margin-top: 10px; color: #777;">A brief overview of my recent findings on large-scale windthrows across the Amazon Basin.</p>
         </section>
-        ```
 
+        <section class="publications">
+            <h3>Peer-Reviewed Journal Articles</h3>
+            <ul>
+                <li>
+                    <span class="year">2024</span>
+                    <strong>Urquiza-Muñoz, J.D.</strong>, Trumbore, S., Negrón-Juárez, R.I., Feng, Y., Brenning, A., Vasquez-Parana, C.M., Marra, D.M. Increased Occurrence of Large-Scale Windthrows Across the Amazon Basin. <em>AGU Advances</em>, 5, e2023AV001030. <a href="https://doi.org/10.1029/2023AV001030" target="_blank">[DOI]</a>
+                </li>
+                <li>
+                    <span class="year">2023</span>
+                    Negron-Juarez, R., Magnabosco-Marra, D., Feng, Y., <strong>Urquiza-Muñoz, J.D.</strong>, Riley, W.J., & Chambers, J. Windthrow characteristics and their regional association with rainfall, soil, and surface elevation in the Amazon. <em>Environmental Research Letters</em>, 18(1), 014030. <a href="#" target="_blank">[DOI]</a>
+                </li>
+                <li>
+                    <span class="year">2022</span>
+                    [Co-author], <strong>Urquiza-Muñoz, J.D.</strong>, & [Co-author]. [Title of your paper]. <em>[Journal Name]</em>, [Volume(Issue)], [Pages].
+                </li>
+                </ul>
 
+            <h3>Preprints & Data Sets</h3>
+            <ul>
+                <li>
+                    <span class="year">2024</span>
+                    <strong>Urquiza-Muñoz, J.D.</strong>, & [Co-authors]. [Dataset or Preprint Title]. <em>[Repository/Server]</em>. <a href="#" target="_blank">[Link]</a>
+                </li>
+            </ul>
+        </section>
+
+    </main>
+
+    <script>
+        const toggleBtn = document.getElementById('theme-toggle');
+        const body = document.body;
+        
+        // Check if the user previously chose dark mode
+        if (localStorage.getItem('theme') === 'dark') {
+            body.classList.add('dark-mode');
+            toggleBtn.textContent = '☀️ Light Mode';
+        }
+
+        // What happens when the button is clicked
+        toggleBtn.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark'); // Save preference
+                toggleBtn.textContent = '☀️ Light Mode'; // Change button text
+            } else {
+                localStorage.setItem('theme', 'light'); // Save preference
+                toggleBtn.textContent = '🌙 Dark Mode'; // Change button text
+            }
+        });
+    </script>
+</body>
+</html>
