@@ -1,201 +1,233 @@
 /* =========================================
-   1. Colors & Dark Mode Variables
+   1. Modern Font & Forest Green Theme
    ========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
 :root {
-    --bg-color: #ffffff;
-    --text-color: #333333;
-    --link-color: #0366d6;
-    --hover-color: #0056b3;
-    --border-color: #e1e4e8;
+    --bg-color: #f4f9f5;         /* Very pale mint/grey background */
+    --surface-color: #ffffff;    /* Pure white for cards */
+    --text-color: #2b3831;       /* Dark forest grey/green for text */
+    --text-muted: #5c7365;       /* Lighter green-grey for subtitles */
+    --link-color: #207245;       /* Deep Forest Green */
+    --hover-color: #144d2e;      /* Darker green on hover */
+    --border-color: #d1e0d6;     /* Soft green border */
+    --shadow: 0 8px 30px rgba(32, 114, 69, 0.08); /* Soft green shadow */
 }
 
 body.dark-mode {
-    --bg-color: #121212;
-    --text-color: #e0e0e0;
-    --link-color: #58a6ff;
-    --hover-color: #79c0ff;
-    --border-color: #30363d;
+    --bg-color: #0f1411;         /* Almost black/dark green */
+    --surface-color: #1a241e;    /* Dark forest surface */
+    --text-color: #e0ebe4;       /* Soft light green/grey text */
+    --text-muted: #9ab3a3;
+    --link-color: #66cc8a;       /* Bright mint for links */
+    --hover-color: #8be0a6;
+    --border-color: #29382f;
+    --shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
 }
 
 /* =========================================
-   2. Base Body Styles (Centered Layout)
+   2. Base Body Styles
    ========================================= */
 body {
     margin: 0;
     padding: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     background-color: var(--bg-color); 
     color: var(--text-color);
-    display: flex;
-    flex-direction: column; 
-    align-items: center; 
-    line-height: 1.6;
+    line-height: 1.7;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 a {
     color: var(--link-color);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 a:hover {
-    text-decoration: underline;
     color: var(--hover-color);
+    text-decoration: underline;
 }
 
 /* =========================================
-   3. Header / Profile Area
+   3. Modern Sticky Top Navigation
    ========================================= */
-.sidebar {
-    width: 100%;
-    max-width: 800px; 
-    height: auto;
-    background-color: transparent;
-    border-bottom: 1px solid var(--border-color); 
-    padding: 50px 20px 20px;
-    box-sizing: border-box;
-    text-align: center;
-}
-
-.profile-img {
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
-    object-fit: cover;
-    display: block;
-    margin: 0 auto 20px auto; 
-    border: 3px solid var(--border-color); 
-    transition: border-color 0.3s ease;
-}
-
-.sidebar h2 {
-    font-size: 2rem;
-    margin: 0 0 20px 0;
-}
-
-.contact-info {
-    font-size: 1rem;
-    margin-bottom: 25px;
+.top-nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: rgba(var(--surface-color), 0.8);
+    backdrop-filter: blur(12px); /* Creates the modern "frosted glass" effect */
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
     display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
-.contact-info p { margin: 0; }
+/* Dark mode fix for the glassmorphism background */
+body.dark-mode .top-nav { background-color: rgba(26, 36, 30, 0.85); }
 
-/* =========================================
-   4. Navigation, Language & Dark Mode
-   ========================================= */
 .nav-links {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
+    gap: 25px;
 }
 
 .nav-links a {
-    color: var(--text-color);
-    padding: 8px 10px;
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding-bottom: 4px;
     border-bottom: 2px solid transparent;
-    font-weight: 500;
-    transition: color 0.3s ease, border-bottom 0.3s ease;
 }
 
-.nav-links a:hover { color: var(--link-color); }
+.nav-links a:hover { color: var(--link-color); text-decoration: none; }
 .nav-links a.active {
     color: var(--link-color);
-    font-weight: bold;
     border-bottom: 2px solid var(--link-color);
 }
 
-.language-toggle {
-    margin-top: 20px;
-    font-size: 0.95rem;
+.nav-controls {
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
-.language-toggle a { color: var(--text-color); }
+.language-toggle { font-size: 0.9rem; font-weight: 600; }
+.language-toggle a { color: var(--text-muted); }
 
 .theme-toggle {
     background: transparent;
     border: 1px solid var(--border-color);
     color: var(--text-color);
-    padding: 8px 15px;
+    padding: 6px 14px;
     border-radius: 20px;
     cursor: pointer;
-    font-size: 0.9rem;
-    margin-top: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
     transition: all 0.3s ease;
 }
 
-.theme-toggle:hover { background-color: var(--border-color); }
+.theme-toggle:hover {
+    background-color: var(--border-color);
+}
 
 /* =========================================
-   5. Main Content Area
+   4. Main Content & Profile Card
    ========================================= */
 .content {
-    padding: 40px 20px;
     max-width: 800px;
-    width: 100%;
-    box-sizing: border-box;
+    margin: 60px auto;
+    padding: 0 20px;
 }
 
-.home-intro, .research-intro { margin-bottom: 40px; }
-.home-intro p, .research-intro p {
-    margin-bottom: 15px;
-    text-align: justify; 
-}
-
-h1, h2, h3 { text-align: center; }
-
-/* =========================================
-   6. Custom Components (Video & Lists)
-   ========================================= */
-.featured-media {
-    width: 100%;
-    margin-bottom: 40px;
-}
-
-.video-container {
-    max-width: 750px;
-    margin: 0 auto;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+.profile-card {
+    background-color: var(--surface-color);
     border: 1px solid var(--border-color);
-    background-color: #000;
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    margin-bottom: 50px;
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.news-updates ul {
-    list-style-type: none;
-    padding: 0;
-    max-width: 750px;
-    margin: 0 auto;
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 20px auto; 
+    border: 4px solid var(--surface-color);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
-.news-updates li {
-    margin-bottom: 10px;
-    text-align: left;
+.profile-card h1 {
+    margin: 0 0 5px 0;
+    font-size: 2.2rem;
+    color: var(--text-color);
 }
+
+.profile-card h2 {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--text-muted);
+    margin: 0 0 20px 0;
+    border: none;
+}
+
 /* Social Media Icons */
 .social-icons {
     display: flex;
     justify-content: center;
-    align-items: center;
-    gap: 15px;
-    margin-top: -10px; /* Pulls it closer to the text above */
-    margin-bottom: 25px;
+    gap: 18px;
+    margin-top: 20px;
 }
 
 .social-icons a {
-    color: var(--text-color);
-    transition: color 0.3s ease, transform 0.3s ease;
+    color: var(--text-muted);
     display: inline-block;
 }
 
 .social-icons a:hover {
     color: var(--link-color);
-    transform: translateY(-3px); /* Adds a nice little bounce effect when you hover */
+    transform: translateY(-3px);
+}
+
+/* =========================================
+   5. Text formatting & Sections
+   ========================================= */
+.home-intro p, .research-intro p {
+    margin-bottom: 20px;
+    text-align: justify; 
+    font-size: 1.05rem;
+}
+
+h2, h3 {
+    color: var(--text-color);
+    margin-top: 40px;
+}
+
+.section-title {
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+    font-size: 1.5rem;
+    text-align: left; /* Modern layouts prefer left-aligned headers */
+}
+
+/* =========================================
+   6. Custom Components (Video & Lists)
+   ========================================= */
+.video-container {
+    max-width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+    background-color: #000;
+    margin-bottom: 40px;
+}
+
+.news-updates ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.news-updates li {
+    margin-bottom: 15px;
+    padding: 15px;
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .top-nav { flex-direction: column; gap: 15px; padding: 15px; }
+    .nav-links { flex-wrap: wrap; justify-content: center; }
+    .profile-card { padding: 30px 20px; }
 }
