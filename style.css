@@ -1,28 +1,32 @@
 /* =========================================
-   1. Modern Font & Forest Green Theme
+   1. Modern Fonts & Forest Green Variables
    ========================================= */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
-    --bg-color: #f4f9f5;         /* Very pale mint/grey background */
-    --surface-color: #ffffff;    /* Pure white for cards */
-    --text-color: #2b3831;       /* Dark forest grey/green for text */
-    --text-muted: #5c7365;       /* Lighter green-grey for subtitles */
-    --link-color: #207245;       /* Deep Forest Green */
-    --hover-color: #144d2e;      /* Darker green on hover */
-    --border-color: #d1e0d6;     /* Soft green border */
-    --shadow: 0 8px 30px rgba(32, 114, 69, 0.08); /* Soft green shadow */
+    /* Light Mode - Forest Green Palette */
+    --bg-body: #f0f4f1;        /* Soft, pale grayish-green background */
+    --bg-card: #ffffff;        /* Pure white for the content card */
+    --text-main: #3a4740;      /* Dark mossy grey for easy reading */
+    --text-heading: #1a3324;   /* Deep forest green for headings */
+    --accent-color: #2b7a4b;   /* Vibrant forest green for links/buttons */
+    --accent-hover: #1e5735;   /* Darker green for hover effects */
+    --active-text: #ffffff;    /* White text for the active menu pill */
+    --border-color: #dce6e0;   /* Very subtle green-grey border */
+    --shadow: 0 10px 40px rgba(26, 51, 36, 0.06); /* Soft green-tinted shadow */
 }
 
 body.dark-mode {
-    --bg-color: #0f1411;         /* Almost black/dark green */
-    --surface-color: #1a241e;    /* Dark forest surface */
-    --text-color: #e0ebe4;       /* Soft light green/grey text */
-    --text-muted: #9ab3a3;
-    --link-color: #66cc8a;       /* Bright mint for links */
-    --hover-color: #8be0a6;
-    --border-color: #29382f;
-    --shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    /* Dark Mode - Deep Jungle Palette */
+    --bg-body: #0d120f;        /* Almost black, deep jungle green */
+    --bg-card: #141c17;        /* Slightly lighter dark green for the card */
+    --text-main: #a9b8b0;      /* Soft light sage for reading */
+    --text-heading: #e1e8e4;   /* Crisp pale green for headings */
+    --accent-color: #5ebd85;   /* Bright mint/fern green for visibility */
+    --accent-hover: #8de3b0;   /* Brighter mint on hover */
+    --active-text: #0d120f;    /* Dark text for the active menu pill */
+    --border-color: #243029;   /* Dark separator lines */
+    --shadow: 0 10px 40px rgba(0, 0, 0, 0.4); /* Stronger shadow for dark mode */
 }
 
 /* =========================================
@@ -31,107 +35,44 @@ body.dark-mode {
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    background-color: var(--bg-color); 
-    color: var(--text-color);
-    line-height: 1.7;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: 'Inter', sans-serif; /* Applied the new modern font */
+    background-color: var(--bg-body); 
+    color: var(--text-main);
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    line-height: 1.7; /* Slightly more breathing room for text */
+    transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 a {
-    color: var(--link-color);
+    color: var(--accent-color);
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: color 0.3s ease;
 }
 
 a:hover {
-    color: var(--hover-color);
     text-decoration: underline;
+    color: var(--accent-hover);
+}
+
+h1, h2, h3 { 
+    color: var(--text-heading);
+    text-align: center; 
+    font-weight: 600;
 }
 
 /* =========================================
-   3. Modern Sticky Top Navigation
+   3. Header / Profile Area
    ========================================= */
-.top-nav {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background-color: rgba(var(--surface-color), 0.8);
-    backdrop-filter: blur(12px); /* Creates the modern "frosted glass" effect */
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border-color);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 40px;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
-}
-
-/* Dark mode fix for the glassmorphism background */
-body.dark-mode .top-nav { background-color: rgba(26, 36, 30, 0.85); }
-
-.nav-links {
-    display: flex;
-    gap: 25px;
-}
-
-.nav-links a {
-    color: var(--text-muted);
-    font-weight: 600;
-    font-size: 0.95rem;
-    padding-bottom: 4px;
-    border-bottom: 2px solid transparent;
-}
-
-.nav-links a:hover { color: var(--link-color); text-decoration: none; }
-.nav-links a.active {
-    color: var(--link-color);
-    border-bottom: 2px solid var(--link-color);
-}
-
-.nav-controls {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.language-toggle { font-size: 0.9rem; font-weight: 600; }
-.language-toggle a { color: var(--text-muted); }
-
-.theme-toggle {
-    background: transparent;
-    border: 1px solid var(--border-color);
-    color: var(--text-color);
-    padding: 6px 14px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 0.85rem;
-    font-weight: 600;
-    transition: all 0.3s ease;
-}
-
-.theme-toggle:hover {
-    background-color: var(--border-color);
-}
-
-/* =========================================
-   4. Main Content & Profile Card
-   ========================================= */
-.content {
-    max-width: 800px;
-    margin: 60px auto;
-    padding: 0 20px;
-}
-
-.profile-card {
-    background-color: var(--surface-color);
-    border: 1px solid var(--border-color);
-    border-radius: 20px;
-    padding: 40px;
+.sidebar {
+    width: 100%;
+    max-width: 800px; 
+    height: auto;
+    background-color: transparent;
+    padding: 50px 20px 20px;
+    box-sizing: border-box;
     text-align: center;
-    box-shadow: var(--shadow);
-    margin-bottom: 50px;
-    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .profile-img {
@@ -139,95 +80,171 @@ body.dark-mode .top-nav { background-color: rgba(26, 36, 30, 0.85); }
     height: 150px;
     border-radius: 50%;
     object-fit: cover;
+    display: block;
     margin: 0 auto 20px auto; 
-    border: 4px solid var(--surface-color);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border: 4px solid var(--bg-card); /* Creates a clean rim */
+    box-shadow: var(--shadow); /* Modern floating shadow */
+    transition: all 0.4s ease;
 }
 
-.profile-card h1 {
-    margin: 0 0 5px 0;
+.sidebar h2 {
     font-size: 2.2rem;
-    color: var(--text-color);
+    margin: 0 0 15px 0;
+    letter-spacing: -0.5px; /* Tighter, more modern headline look */
 }
 
-.profile-card h2 {
-    font-size: 1.1rem;
-    font-weight: 400;
-    color: var(--text-muted);
-    margin: 0 0 20px 0;
-    border: none;
+.contact-info {
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
 }
+
+.contact-info p { margin: 0; }
 
 /* Social Media Icons */
 .social-icons {
     display: flex;
     justify-content: center;
-    gap: 18px;
-    margin-top: 20px;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
 }
 
 .social-icons a {
-    color: var(--text-muted);
+    color: var(--text-main);
+    transition: color 0.3s ease, transform 0.3s ease;
     display: inline-block;
 }
 
 .social-icons a:hover {
-    color: var(--link-color);
+    color: var(--accent-color);
     transform: translateY(-3px);
 }
 
 /* =========================================
-   5. Text formatting & Sections
+   4. Modern Navigation & Toggles
    ========================================= */
+.nav-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+/* Modern Pill Navigation */
+.nav-links a {
+    color: var(--text-main);
+    padding: 8px 18px;
+    border-radius: 30px; /* Makes them look like pills */
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover { 
+    color: var(--accent-color); 
+    background-color: rgba(43, 122, 75, 0.1); /* Soft green hover background */
+    text-decoration: none;
+}
+
+.nav-links a.active {
+    background-color: var(--accent-color);
+    color: var(--active-text);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.language-toggle {
+    margin-top: 15px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.language-toggle a { color: var(--text-main); }
+
+.theme-toggle {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    padding: 10px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+    margin-top: 25px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover { 
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+/* =========================================
+   5. Main Content Area (The "Card")
+   ========================================= */
+.content {
+    background-color: var(--bg-card);
+    border-radius: 24px; /* Soft, modern rounded corners */
+    box-shadow: var(--shadow); /* The floating effect */
+    padding: 50px 60px; /* Lots of clean breathing room */
+    margin-top: 20px;
+    margin-bottom: 60px;
+    max-width: 800px;
+    width: 92%;
+    box-sizing: border-box;
+    transition: background-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.home-intro, .research-intro { margin-bottom: 40px; }
 .home-intro p, .research-intro p {
-    margin-bottom: 20px;
+    margin-bottom: 18px;
     text-align: justify; 
-    font-size: 1.05rem;
-}
-
-h2, h3 {
-    color: var(--text-color);
-    margin-top: 40px;
-}
-
-.section-title {
-    border-bottom: 2px solid var(--border-color);
-    padding-bottom: 10px;
-    margin-bottom: 25px;
-    font-size: 1.5rem;
-    text-align: left; /* Modern layouts prefer left-aligned headers */
 }
 
 /* =========================================
    6. Custom Components (Video & Lists)
    ========================================= */
+.featured-media {
+    width: 100%;
+    margin-bottom: 50px;
+}
+
 .video-container {
-    max-width: 100%;
+    max-width: 750px;
+    margin: 0 auto;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: var(--shadow);
-    border: 1px solid var(--border-color);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
     background-color: #000;
-    margin-bottom: 40px;
+    border: none; /* Removed the hard border for a cleaner look */
+}
+
+.publications h2, .news-updates h2 {
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 15px;
+    margin-top: 40px;
+    margin-bottom: 25px;
+    font-size: 1.6rem;
 }
 
 .news-updates ul {
     list-style-type: none;
     padding: 0;
+    max-width: 750px;
+    margin: 0 auto;
 }
 
 .news-updates li {
     margin-bottom: 15px;
-    padding: 15px;
-    background-color: var(--surface-color);
-    border: 1px solid var(--border-color);
-    border-radius: 10px;
-    box-shadow: var(--shadow);
-}
-
-/* Mobile Responsiveness */
-@media (max-width: 768px) {
-    .top-nav { flex-direction: column; gap: 15px; padding: 15px; }
-    .nav-links { flex-wrap: wrap; justify-content: center; }
-    .profile-card { padding: 30px 20px; }
+    text-align: left;
+    padding-left: 15px;
+    border-left: 3px solid var(--accent-color); /* Adds a modern green accent line to news items */
 }
