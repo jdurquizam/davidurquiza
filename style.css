@@ -338,3 +338,29 @@ h1, h2, h3 {
         display: none;
     }
 }
+
+/* =========================================
+   Featured GIF Style
+   ========================================= */
+.featured-gif-container {
+    width: 100%;
+    max-width: 650px; /* Keeps it from getting too huge on big screens */
+    margin: 30px auto 40px auto;
+    text-align: center;
+}
+
+.featured-gif {
+    width: 100%;
+    height: auto;
+    border-radius: 16px; /* Modern rounded corners */
+    box-shadow: var(--shadow); /* Uses the floating shadow we created earlier */
+    display: block;
+    border: 1px solid var(--border-color);
+}
+
+.gif-caption {
+    font-size: 0.85rem;
+    margin-top: 12px !important;
+    opacity: 0.7; /* Makes the caption text slightly faded so it doesn't distract */
+}
+
